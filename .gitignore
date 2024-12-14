@@ -1,0 +1,11 @@
+# Ignoramos algunas carpetas y ficheros para que git no los tenga en cuenta
+.idea/
+.vscode/
+.venv*/
+venv*/
+__pycache__/
+dist/
+.coverage*
+htmlcov/
+.tox/
+docs/_build/
