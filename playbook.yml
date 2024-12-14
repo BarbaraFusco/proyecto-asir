@@ -1,5 +1,5 @@
 ---
-- name: Deploy and configure Nginx and Python environment
+- name: Configurar y desplegar nuestra aplicación y cargarla usando Ngindx
   hosts: localhost
   become: true
 
