@@ -1,0 +1,18 @@
+---
+- name: Instalamos Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Copiamos la configuración de Nginx para nuestra página
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Reiniciamos el servicio nginx
+  service:
+    name: nginx
+    state: restarted
