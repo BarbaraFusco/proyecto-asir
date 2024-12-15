@@ -16,6 +16,7 @@
     virtualenv_python: python3
 
 - name: Iniciar la aplicación Flask
-  command: /tmp/venv/bin/python {{ playbook_dir }}/app_web/app.py
+  shell: |
+    FLASK_APP={{ playbook_dir }}/app_web/app.py /tmp/venv/bin/python -m flask run --host=0.0.0.0 --port=5000 &
   args:
     chdir: "{{ playbook_dir }}/app_web"
