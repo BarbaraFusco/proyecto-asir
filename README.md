@@ -26,3 +26,4 @@ La idea es tener una aplicación mínima en Flask que pasa por varias etapas: c�
    - Servicios
    - Contáctanos
 
+![Imagen Proyecto](./imagenes/diagrama_proyecto.png)
