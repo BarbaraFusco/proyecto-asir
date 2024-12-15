@@ -1,21 +1,33 @@
-name: tests
+name: Test y despliegue de aplicación web
 
 on:
   - push
   - pull_request
 
 jobs:
-  tox:
+  test:
     runs-on: ubuntu-latest
     container:
       image: python:3.10
     steps:
-      - name: Packages
-        run: pip install tox
-      - name: Checkout
+      - name: Usamos nuestro repositorio
         uses: actions/checkout@v3
-      - name: Tox
+
+      - name: Instalamos paquetes necesarios
+        run: |
+          sudo apt update
+          sudo apt install -y ansible curl
+          pip install tox
+
+      - name: Ejecutamos tox
         run: |
           git config --global --add safe.directory "${GITHUB_WORKSPACE}"
           tox -v
 
+      - name: Ejecutamos nuestro playbook para desplegar nuestra aplicacion
+        run: |
+          ansible-playbook -i localhost, -c local playbook.yml
+
+      - name: Hacemos un curl para ver nuestra aplicación
+        run: |
+          curl --fail http://localhost:5000 || exit 1

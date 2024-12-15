@@ -1,21 +1,16 @@
-- name: Instalamos Python 3
-  apt:
-    name: python3
-    state: present
-
-- name: Instalamos pip para instalar librerias y virtualenv para crear entornos virtuales
-  apt:
-    name:
-      - python3-pip
-      - virtualenv
-    state: present
-
-- name: Creamos el entorno virtual
+---
+- name: Crear entorno virtual
   command: virtualenv /tmp/venv
   args:
     creates: /tmp/venv
 
-- name: Instalamos los módulos que necesitamos para nuestra aplicación con el requirements.txt dentro del virtualenv
+- name: Instalar dependencias de Python
   pip:
-    requirements: /path/to/requirements.txt
-    virtualenv: /path/to/venv
+    requirements: "{{ playbook_dir }}/requirements.txt"
+    virtualenv: /tmp/venv
+    virtualenv_python: python3
+
+- name: Iniciar la aplicación Flask
+  command: /tmp/venv/bin/python {{ playbook_dir }}/app_web/app.py
+  args:
+    chdir: "{{ playbook_dir }}/app_web"

@@ -1,5 +1,5 @@
 ---
-- name: Configurar y desplegar nuestra aplicación y cargarla usando Ngindx
+- name: Configurar y desplegar nuestra aplicación y cargarla usando Nginx
   hosts: localhost
   become: true
 
