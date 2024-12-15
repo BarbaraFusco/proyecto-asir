@@ -21,9 +21,9 @@ La idea es tener una aplicación mínima en Flask que pasa por varias etapas: c�
 
 # Funcionalidades
 1. Página web básica con:
-   - Inicio
-   - ¿Quiénes somos?
-   - Servicios
-   - Contáctanos
+   - TechSolutions (página principal)
+   - Contacto
+
+# Diagrama de proyecto
 
 ![Imagen Proyecto](./imagenes/diagrama_proyecto.png)
