@@ -1,10 +1,15 @@
 ---
+- name: Instalar virtualenv
+  pip:
+    name: virtualenv
+    state: present
+
 - name: Crear entorno virtual
   command: virtualenv /tmp/venv
   args:
     creates: /tmp/venv
 
-- name: Instalar dependencias de Python
+- name: Instalar dependencias de Python en el entorno virtual
   pip:
     requirements: "{{ playbook_dir }}/requirements.txt"
     virtualenv: /tmp/venv
