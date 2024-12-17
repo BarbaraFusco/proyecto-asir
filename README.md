@@ -27,3 +27,5 @@ La idea es tener una aplicación mínima en Flask que pasa por varias etapas: c�
 # Diagrama de proyecto
 
 ![Imagen Proyecto](./imagenes/diagrama_proyecto.png)
+
+Fin
